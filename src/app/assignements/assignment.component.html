@@ -1,0 +1,68 @@
+<main class="container">
+  <div class="ajouterBtn">
+    <a routerLink="/add">
+      <button mat-flat-button color="accent"
+              (click)="onAddAssignmentBtnClick()"
+              class="ajouterBtn">
+        Ajouter Assignment
+      </button>
+    </a>
+  </div>
+
+  <div class="peupleDB">
+    <button mat-flat-button color="accent"
+            (click)="peuplerBD()"
+            class="ajouterBtn">
+      Peupler BD
+    </button>
+  </div>
+
+  <!-- Navigation entre les pages -->
+  <div class="pagination-buttons">
+    <button mat-stroked-button
+            color="primary"
+            (click)="goToFirstPage()"
+            [disabled]="!hasPrevPage">Première page</button>
+    <button mat-stroked-button
+            color="primary"
+            (click)="goToPrevPage()"
+            [disabled]="!hasPrevPage">Page précédente</button>
+    <button mat-stroked-button
+            color="primary"
+            (click)="goToNextPage()"
+            [disabled]="!hasNextPage">Page suivante</button>
+    <button mat-stroked-button
+            color="primary"
+            (click)="goToLastPage()"
+            [disabled]="!hasNextPage">Dernière page</button>
+  </div>
+
+  <!-- Informations sur les pages -->
+  <div class="pagination-info">
+    <p>Page {{ page }} sur {{ totalPages }}</p>
+    <p>Nombre total d'assignments : {{ totalDocs }}</p>
+  </div>
+
+
+  <!-- Liste des assignments -->
+  <mat-list>
+    <mat-divider></mat-divider>
+    @for(a of assignments; track a.nom) {
+      <nav><a routerLink="/assignment/{{a.id}}">
+        <div (click)="assignmentClique(a)">
+          <h3 mat-subheader>{{a.dateDeRendu | date:'dd/MM/YYYY'}}</h3>
+          @if(a.rendu) {
+            <mat-list-item appRendu>
+              Le devoir {{a.nom}} a été rendu.
+            </mat-list-item>
+          } @else {
+            <mat-list-item appNonRendu>
+              Le devoir {{a.nom}} EST ENCORE À RENDRE !!!
+            </mat-list-item>
+          }
+        </div>
+      </a></nav>
+      <mat-divider></mat-divider>
+    }
+  </mat-list>
+</main>

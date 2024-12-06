@@ -1,0 +1,38 @@
+table, td, tr {
+  border: 1px solid black;
+}
+
+.rendu {
+  background-color: lightgreen;
+  color:green
+}
+
+.nonRendu {
+  background-color: lightcoral;
+  color:red
+}
+
+.container {
+  display:flex;
+  flex-direction: column;
+  margin:5px;
+}
+
+.ajouterBtn {
+  align-self: flex-end;
+}
+
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination-buttons button {
+  margin: 0 10px;
+}
+
+.pagination-info {
+  text-align: center;
+  margin: 10px 0;
+}

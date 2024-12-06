@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="toggleSidenav(sidenav)">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Application Angular de gestion de devoirs</span>
+  <span class="spacer"></span>
+  <button mat-icon-button aria-label="Accueil" routerLink="/home">
+    <mat-icon>home</mat-icon>
+  </button>
+  <a mat-button routerLink="/login">Connexion</a>
+</mat-toolbar>
+
+<!-- Sidebar / Menu latéral -->
+<mat-sidenav-container class="sidenav-container">
+  <!-- Ajout de la référence locale #sidenav -->
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">Liste des devoirs</a>
+      <a mat-list-item routerLink="/add">Ajout d'un devoir</a>
+      <a mat-list-item href="#">Modification d'un devoir</a>
+      <a mat-list-item href="#">Suppression d'un devoir</a>
+      <a mat-list-item href="#">Génération de données de test</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- Contenu central de l'application -->
+    <router-outlet>
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
